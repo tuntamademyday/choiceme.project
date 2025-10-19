@@ -783,9 +783,14 @@
                 class="w-full max-w-md mx-auto mb-6 rounded-xl shadow-lg" />
             
             <!-- Website Link -->
-            <div class="text-center mb-8">
-                <a href="https://forms.gle/gmuGevcsTQhtorke7" target="_blank" class="text-white px-8 py-4 organic-shape text-sm font-bold transition-all duration-300 transform hover:scale-105 inline-block shadow-2xl" style="background: linear-gradient(135deg, #A5C6B0, #D4BDDD); transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #8FB09A, #BFA4C4)'" onmouseout="this.style.background='linear-gradient(135deg, #A5C6B0, #D4BDDD)'">
-                    แจ้งเตือนเมื่อมา
+<a id="notify-me-btn"
+   href="https://docs.google.com/forms/d/e/1FAIpQLSf6Iihpf1gAatc7gei7tToy2rFIiguiLA_a3u64Ju41zleo3Q/viewform?usp=header"
+   target="_blank"
+   class="text-white px-8 py-4 organic-shape text-sm font-bold transition-all duration-300 transform hover:scale-105 inline-block shadow-2xl"
+   style="background: linear-gradient(135deg, #A5C6B0, #D4BDDD); transition: all 0.3s ease;"
+   onmouseover="this.style.background='linear-gradient(135deg, #8FB09A, #BFA4C4)'"
+   onmouseout="this.style.background='linear-gradient(135deg, #A5C6B0, #D4BDDD)'">
+   แจ้งฉันเมื่อมา
                 </a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScUYLttekmpnklzk8QUhkx5kUJpufYE8L8sxXZ76VhWQYrXNg/viewform?usp=dialog" target="_blank" class="text-white px-8 py-4 organic-shape text-sm font-bold transition-all duration-300 transform hover:scale-105 inline-block shadow-2xl" style="background: linear-gradient(135deg, #A5C6B0, #D4BDDD); transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #8FB09A, #BFA4C4)'" onmouseout="this.style.background='linear-gradient(135deg, #A5C6B0, #D4BDDD)'">
                     Say someting to tunta
@@ -897,7 +902,7 @@
                 resultMainColorLabel: "สีหลัก (สีที่สะท้อนบุคลิกหรือตัวตน) :",
                 resultSecondaryColorLabel: "สีรอง (พลังเสริม หรือแง่มุมที่ \"คนอื่นรู้สึกได้\" เมื่ออยู่ใกล้คุณ):",
                 resultCombinedPrefix: "Combined, they become you...",
-                resultViewAllLink: "แจ้งเตือนเมื่อมา",
+                resultViewAllLink: "แจ้งฉันเมื่อมา",
                 resultPlayAgain: "เล่นอีกครั้ง",
                 resultShare: "แชร์ผลลัพธ์",
                 
@@ -1023,7 +1028,7 @@
                 resultMainColorLabel: "Main Color (the color that reflects your personality or essence):",
                 resultSecondaryColorLabel: "Secondary Color (the power or vibe that \"others can feel\" when near you):",
                 resultCombinedPrefix: "Together, they become you...",
-                resultViewAllLink: "Let me know when it’s time",
+                resultViewAllLink: "Stay tuned",
                 resultPlayAgain: "Play again",
                 resultShare: "Share result",
     
@@ -3963,7 +3968,8 @@ function showResult() {
             document.querySelector('.text-sm.font-medium.text-white.mb-4').textContent = t.resultCombinedPrefix;
             
             // Update buttons
-            document.querySelector('a[href*="canva.site"]').textContent = t.resultViewAllLink;
+            const notifyBtn = document.getElementById('notify-me-btn');
+if (notifyBtn) notifyBtn.textContent = t.resultViewAllLink;
             document.querySelector('button[onclick="resetGame()"]').textContent = t.resultPlayAgain;
             document.querySelector('button[onclick="saveAsImage()"]').textContent = t.resultShare;
             
@@ -4095,8 +4101,8 @@ function updateResultTexts() {
   if (h4s[1]) h4s[1].innerHTML = `${t.resultSecondaryColorLabel} <span id="secondary-color-meaning-name">${secondaryName}</span>`;
 
   // 7) ปุ่ม/ลิงก์ท้ายหน้า
-  const viewAllLink = document.querySelector('#result-screen a[href*="canva.site"]');
-  if (viewAllLink) viewAllLink.textContent = t.resultViewAllLink;
+const viewAllLink = document.querySelector('#notify-me-btn');
+if (viewAllLink) viewAllLink.textContent = t.resultViewAllLink;
 
   const playAgainBtn = document.querySelector('#result-screen button[onclick="resetGame()"]');
   if (playAgainBtn) playAgainBtn.textContent = t.resultPlayAgain;
